@@ -26,7 +26,7 @@ float soldierSpeed = 2f;
 final int GAME_INIT_TIMER = 7200;
 int gameTimer = GAME_INIT_TIMER;
 
-final float CLOCK_BONUS_SECONDS = 15f;
+final float CLOCK_BONUS_SECONDS = 15*60;
 
 float playerX, playerY;
 int playerCol, playerRow;
@@ -534,11 +534,7 @@ void drawTimerUI() {// Requirement #4: Get the mm:ss string using String convert
 }
 
 void addTime(float seconds) {				// Requirement #2
-  if (gameTimer > GAME_INIT_TIMER) {
-    gameTimer = GAME_INIT_TIMER;
-  } else {
-    gameTimer += int(seconds*60);
-  }
+  gameTimer = gameTimer + int(seconds);
 }
 
 boolean isHit(float ax, float ay, float aw, float ah, float bx, float by, float bw, float bh) {
