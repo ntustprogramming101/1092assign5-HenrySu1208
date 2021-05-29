@@ -532,7 +532,7 @@ void addTime(float seconds) {				// Requirement #2
   if (gameTimer > GAME_INIT_TIMER) {
     gameTimer = GAME_INIT_TIMER;
   } else {
-    gameTimer += seconds*60;
+    gameTimer += int(seconds*60);
   }
 }
 
