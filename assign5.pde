@@ -513,8 +513,13 @@ void drawDepthUI() {
   text(depthString, width, height);
 }
 
-void drawTimerUI() {
-  String timeString = convertFramesToTimeString(gameTimer); // Requirement #4: Get the mm:ss string using String convertFramesToTimeString(int frames)
+void drawTimerUI() {// Requirement #4: Get the mm:ss string using String convertFramesToTimeString(int frames)
+  float num = float(gameTimer)/60;
+  int min = int(num/60);
+  int sec = int(num-min*60);
+  String mm = nf(min, 2);
+  String ss = nf(sec, 2);
+  String timeString = mm +":"+ ss; 
   textAlign(LEFT, BOTTOM);
 
   // Time Text Shadow Effect - You don't have to change this!
@@ -541,9 +546,7 @@ boolean isHit(float ax, float ay, float aw, float ah, float bx, float by, float 
 }
 
 String convertFramesToTimeString(int frames) {	// Requirement #4
-  String mm = nf((frames/60)/60, 2);
-  String ss = nf((frames/60)/2, 2);
-  return mm +":"+ss;
+  return "";
 }
 
 color getTimeTextColor(int frames) {				// Requirement #5
